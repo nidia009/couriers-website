@@ -1,15 +1,14 @@
 <?php 
-include 'connection.inc.php'; 
-include 'config.php';
- ?> 
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <!-- Mirrored from html.themexriver.com/fastrans/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Nov 2021 23:47:36 GMT -->
 <head>
 	<meta charset="UTF-8">
-	<title><?php echo $title; ?></title>
-	<meta name="description" content="RoyalSafety - Logistics & Delivery Company  ">
+	<title>Admin</title>
+	<meta name="description" content="FasTrans - Logistics & Delivery Company HTML template">
 	<meta name="keywords" content="cargo, clean, contractor, corporate, freight, industry, localization, logistics, page builder, shipment, transport, transportation, truck, trucking">
 	<meta name="author" content="Themexriver">
 	<link rel="shortcut icon" href="assets/img/logo/ficon.png" type="image/x-icon">
@@ -53,23 +52,25 @@ include 'config.php';
 							<nav class="ft-main-navigation clearfix ul-li">
 								<ul id="ft-main-nav" class="nav navbar-nav clearfix">
 									<li>
-										<a href="index.php">Home</a>
-										
+											<a href="../index.php">Site Home</a>
+											
 									</li>
-									<li><a href="about.html">About</a></li>
-									<li>
-										<a href="service.html">Service</a>
-										
-									</li>
-									<li>
-										<a href="contact.html">Contact</a>
-
-									</li>
-
+							<?php 
+										if (isset($_SESSION['ADMIN_LOGIN'])) {
+											echo '<li>
+										<a href="index.php">Admin Home</a>
+										</li>';
+									}else{
+										echo "";
+									}
+							?>
+									
+									
+					
 								</ul>
 							</nav>
 							<div class="ft-header-cta-btn">
-								<a class="d-flex justify-content-center align-items-center" href="#div-id">Track</a>
+								<a class="d-flex justify-content-center align-items-center" href="logout.php">Logout</a>
 							</div>
 						</div>
 					</div>
@@ -87,22 +88,23 @@ include 'config.php';
 									<a href="%21.html#"><img src="assets/img/logo/logo4.png" alt=""></a>
 								</div>
 								<nav class="mobile-main-navigation  clearfix ul-li">
-										<ul id="ft-main-nav" class="nav navbar-nav clearfix">
-											<li>
-												<a href="index.php">Home</a>
-												
-											</li>
-											<li><a href="about.html">About</a></li>
-											<li>
-												<a href="service.html">Service</a>
-												
-											</li>
-											<li>
-												<a href="contact.html">Contact</a>
+									<ul id="ft-main-nav" class="nav navbar-nav clearfix">
+										<li>
+											<a href="../index.php">Site Home</a>
+											
+										</li>
+										<?php 
+										if (isset($_SESSION['ADMIN_LOGIN'])) {
+											echo '<li>
+										<a href="index.php">Admin Home</a>
+										</li>';
+									}else{
+										echo "";
+									}
+							?>
+										<li><a href="logout.php">Logout</a></li>
+										
 
-											</li>
-
-										</ul>
 									</ul>
 								</nav>
 							</div>
