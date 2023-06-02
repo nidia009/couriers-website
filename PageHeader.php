@@ -2,8 +2,7 @@
 
 namespace Mpdf\Tag;
 
-class Form extends BlockTag
+class PageHeader extends PageFooter
 {
-
 
 }
